@@ -1,0 +1,920 @@
+/*
+    1- Common styles
+    2- General styles
+    3- Sections
+        3.0 Header Section
+        3.1 Home Section
+        3.2 About Section
+        3.3 Portfolio Section
+        3.4 Service section 
+        3.5 Price Section 
+        3.6 Team Seaction
+        3.7 Blog Page
+        3.8 Contact Section
+        3.9 Footer Section 
+*/
+
+/* 1- Common Styles*/
+/*
+    -Container
+    -overlayer
+    -Opacity Hover
+    -Section Header 
+    -Section padding
+    -Hover effect 1 (left to right)
+    -Hover effect 2 (top to bottom)
+*/
+.container{
+    width: 80%;
+    margin: auto;/* put this element in the middle*/
+}
+.overlayer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.7) ;
+    top: 0;
+    left: 0;
+}
+
+.hover-opacity{
+    transition: opacity .5s; /* affect of every thing in tha element ,that why we spacified opacity*/
+}  
+.hover-opacity:hover{
+    opacity: 0.8;
+}
+
+.ltr-effect{
+    position: relative;
+}
+
+.ltr-effect::after, .ttb-effect::after{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0 ;
+    right: 0 ;
+    bottom: 0 ;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+.ltr-effect:hover:after{
+    width: 100%;
+}
+.ltr-effect::after{
+    width: 0;
+    transition: width .5s ;
+}
+
+.ttb-effect::after{
+    transition: height .5s;
+    height: 0;
+}
+.ttb-effect{
+    position: relative;
+}
+
+.ttb-effect:hover::after{
+    height: 100%;
+}
+/* 2- General Css Styles*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* هاي الخاصيه حتى لا يتم تزويد ال padding  على ال margin*/
+}
+
+body{
+    font-family: 'Varela Round', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Redressed', cursive;
+}
+
+button{
+    font-family: inherit;
+    font-weight: 400;
+}
+
+a{
+    text-decoration: none;
+}
+
+.general-header{
+    text-align: center;
+    position: relative;
+    padding-bottom: 120px;
+}
+
+.general-header .section-title{
+    font-size: 40px;
+    text-transform: capitalize;
+}
+
+.general-header .line{
+    display: block;
+    height: 3px;
+    width: 40px;
+    background-color: #1af;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    border-radius: 3px;
+    margin: 0px 0px 70px 0px;
+}
+
+.pd-y{
+    padding: 120px;
+}
+.fa-p{
+    padding-bottom:10px ;
+}
+
+/* 3- Sections*/
+/* 3.0 Header Section*/
+.header{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.header .logo{
+    width: 40%;
+    float: left;
+}
+
+.header .logo img{
+    width: 20%;
+    margin-top: 15px;
+}
+
+.header .nav{
+     width: 60%;
+     float: left;
+     list-style: none;
+     text-align: right;
+}
+
+.header-container{
+    /*overflow: hidden;/* to control float effect, and if thier is a drop down its gonna hide too so its a problem, so we have to use clear* */
+}
+.clear{
+    clear: both;
+}
+
+.header .nav > li{
+    display: inline-block;
+    text-align: right;
+}
+
+.header .nav > li > a {
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    padding: 20px 13px;
+}
+
+.header .nav >li > a.active:after ,
+.header .nav >li >a:after {
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: #1af;
+    transition: width .5s;
+    margin-top: 2px;
+}
+
+
+.header .nav > li > a.active:after {
+    width: 100%;
+}
+
+.header .nav > li > a:after {
+    width: 0;
+}
+
+.header .nav > li > a:hover:after{
+    width: 100%;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-menu{
+    position : absolute;
+    left: -15px;
+    top: 75%;
+    list-style: none;
+    text-align: center;
+    width: 100px;
+    background-color: #1af;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s , visibility .5s ;
+}
+
+.dropdown-menu li{
+    display: block;
+}
+
+.dropdown .dropdown-menu li a {
+    color: #fff;
+    display: block;
+    font-size: 12px;  
+    padding: 10px 0px;
+}
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+/* 3.1 Home Section*/
+.home {
+    height: 100vh;
+    background-image: url(../images/background/background1.webp);
+    background-position: center;
+    background-size: cover;/* حتى تكون كل الصورة في مجال الشاشه*/
+    position: relative;
+}
+
+
+.home-content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    width: 70%;
+    letter-spacing: 3;
+    line-height: 1.5;
+}
+
+.home .title{
+    color:#fff;
+    font-size: 60px;
+}
+
+.home .home-desc{
+    margin: 10px 0px;
+    color: #fff ;
+}
+
+.home .btn{
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    margin: 20px;  
+    border-radius: 5px;  
+    border: none;
+    cursor: pointer; /* for the mouse pointer*/
+}
+
+.home .btn-start{
+    background-color: #fff;
+}
+
+.home .btn-learn{
+    background-color: #1af;
+    color: #fff;
+}
+
+/* About Section*/
+.about {
+    overflow: hidden;
+}
+
+.about-item{
+    width: 30%;
+    float: left;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.about-item:hover .about-item-title{
+    color:#fff;
+}
+
+.about-item.mg{
+    margin: 0px 5%;
+}
+
+.about-item .icon{
+    color: #1af;
+}
+
+.about-item-title{
+    text-transform: capitalize;
+    transition: color .5s;
+}
+
+.about-item-desc{
+    line-height: 1.6;
+    color: #bbb;
+}
+
+.about-item-link{
+    color:#1af;
+    text-transform: capitalize;
+}
+
+
+/* portfolio Section*/
+.portfolio{
+    background-color: #f9f9f9;
+}
+
+.portfolio-content{
+    overflow: hidden;
+}
+
+.portfolio-item{
+    float: left;
+    width:30%;
+    margin-bottom:60px ;
+    position: relative;
+    
+}
+
+.portfolio-item img{
+    width: 100%;
+    padding: 20px;
+}
+
+.portfolio-item.mg{
+    margin: 0 5%;
+}
+
+.portfolio-item:hover .portfolio-layer{
+    opacity: 1;
+    visibility: visible;
+}
+
+.portfolio-layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s;
+
+    
+}
+
+.portfolio-layer-content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.portfolio-layer-category{
+    color: #1af;
+    position: relative;
+    top:10;
+    opacity: 0;
+    transition: top .2s , opacity .2s;
+    transition-delay: .2s;
+
+}
+
+.portfolio-layer-title{
+    color: white;
+    font-size: 22px;
+    margin: 15px 0px;
+    position: relative;
+    top:10;
+    opacity: 0;
+    transition: top .3s , opacity .3s;
+    transition-delay: .3s;
+
+}
+
+.portfolio-layer-icon{
+    color: #fff;
+    padding-top:5px ;
+  
+}
+
+.portfolio-layer a{
+    position: relative;
+    top:10;
+    width: 40px;
+    opacity: 0;
+    transition: top .4s , opacity .4s;
+    transition-delay: .4s;
+
+    display: inline-block;
+    height: 40px;
+    background-color: #1af;
+    margin: 0px 7px;
+
+}
+
+.portfolio-item:hover .portfolio-layer-category ,
+.portfolio-item:hover .portfolio-layer-title ,
+.portfolio-item:hover .portfolio-layer a {
+    top: 0;
+    opacity: 1;
+}
+
+/* service section */
+.service{
+    overflow: hidden;
+}
+.service-content-item{
+    float: left;
+    width: 30%;
+    margin-bottom: 100px;
+    border: .5px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.service-content-item.mg{
+    margin: 0px 5%;
+}
+
+.service-content-border{
+    margin: 15px;
+    position: relative;
+
+}
+
+.service-content-icon{
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    color: #1af;
+}
+
+.service-content-title{
+    display: inline-block;
+    padding-left: 45px;
+    font-size: 25px;
+}
+
+.service-content-item:hover .service-content-title{
+    color: #fff;
+}
+
+.service-content-desc{
+    margin-top: 20px;
+    padding-left: 45px;
+    color: #bbb;
+}
+
+/* prices Section*/
+.prices{
+    background-color: #f9f9f9;
+}
+
+.prices-item{
+    width: 50%;
+    float: left;
+}
+
+.prices .general-header{
+    text-align: left;
+    padding-bottom: 60px;
+}
+
+.prices .line{
+    left: 5%;
+}
+
+.prices-list{
+    list-style: none;
+}
+
+.prices-list li i{
+    border: 1px solid #1af;
+    color: #1af;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.prices-list li{
+    margin: 20px 0px;
+    color: #999;
+}
+
+.prices-paragraph{
+    padding-right: 20px;
+    color: #999;
+    line-height: 2;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.prices-item-images img{
+    width: 100%;
+}
+
+.prices-bollets{
+    list-style: none;
+    text-align: center;
+}
+
+.prices-bollets li{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #a8a8a8;
+    border-radius: 50%;
+    margin: 5px 5px;
+}
+
+.prices-bollets li.active{
+    background-color: #1af;
+    width: 15px;
+}
+
+/* numbers section*/
+.number{
+    position: relative;
+    background-image: url("../images/background/background2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 300px;
+}
+
+.numbers-items{
+    overflow: hidden;
+    padding: 100px;
+}
+
+.number-item{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.number-item .icon{
+    color: #1af;
+    margin-bottom: 15px;
+}
+
+.number-item-title{
+    font-weight: bold;
+    font-size: 30px;
+    color: #fff;
+}
+
+.number-item-text{
+    color: #fff;
+}
+
+/* pricing section */ 
+.pricing{
+    overflow: hidden;
+}
+.pricing-items{
+    position: relative;
+}
+.pricing-item{
+    float: left;
+    width: 30%;
+    border: 1px solid #f8f8f8;
+}
+.pricing-item.mg{
+    margin: 0 5%;
+}
+.pricing-item-title{
+    margin: 20px 0;
+    text-align: center;
+    font-size: 30px;
+    color: #999;
+    transition: color .5s;
+}
+.pricing-item-price{
+    border: 1px solid #1af;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    margin:auto ;
+    margin-bottom: 20px;
+}
+.pricing-item-price-title{
+    font-weight: bold;
+    font-size: 45px;
+    transition: color .5s;
+}
+.pricing-item-price-text{
+    transition: color .5s;
+}
+.pricing-item-list{
+    list-style: none;
+    text-align: center;
+    color: #a9a9a9;
+    margin-bottom: 25px;
+    transition: color .5s;
+}
+.pricing-item-button{
+    color: #1af;
+    border-radius: 3px;
+    border: 3px solid #1af;
+    width: 140px;
+    height: 40px;
+    display: block;
+    margin: auto;
+    margin-bottom:25px ;
+}
+
+.pricing-item:hover .pricing-item-title{
+    color: #1af;
+}
+.pricing-item:hover .pricing-item-list{
+    color: #fff;
+}
+.pricing-item:hover .pricing-item-price-title{
+    color: #fff;
+}
+.pricing-item:hover .pricing-item-price-text{
+    color: #fff;
+}
+
+/*team section*/
+.team{
+    background-image: url("../images/background/background3.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    height: 400px;
+}
+.team-items{
+    position: relative;
+    overflow: hidden;
+    padding: 100px;
+}
+
+.team-item{
+    float: left;
+    width: 50%;
+    color: #fff;
+}
+.team-item-img{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+.team-item-label{
+    display: inline-block;
+    margin: 10px;
+    vertical-align: 15px;
+}
+.team-item-name{
+    padding-bottom: 3px;
+    font-size: 22px;
+}
+.team-item-desc{
+    color: #1af;
+    font-size: 14px;
+}
+.team-item-text{
+    margin-top: 20px;
+    line-height: 2;
+}
+
+/* team section 2*/
+.client{
+
+}
+.client-content{
+    overflow: hidden;
+}
+.client-item{
+    float: left;
+    width: 30%;
+    background-color: #f3f3f3;
+    padding: 40px 20px;
+    text-align: center;
+}
+.client-item.mg{
+    margin: 0px 5%;
+}
+.client-img{
+    width: 90%;
+    margin: auto;
+    position: relative;
+}
+.client-img img{
+    width: 100%;
+}
+.client-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+}
+.client-overlay a i{
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    background: #1af;
+    display: block;
+    line-height: 30px;
+    margin-left: auto;
+}
+.client-info-title{
+    font-size: 32px;
+    color: #222;
+    margin: 10px 0px;
+    text-transform: capitalize;
+}
+.client-info-text{
+    color: #999;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.client-item:hover .client-overlay{
+    opacity: 1;
+    visibility: visible;
+}
+.client-item:hover {
+    z-index: 1;
+}
+.client-item:hover .client-info-title{
+    color: #fff;
+}
+.client-item:hover .client-info-text{
+    color: #1af;
+}
+
+/* blog recent news*/
+.recent{
+    background-color: #f8f8f8;
+}
+.recent-content{
+    overflow: hidden;
+}
+.recent-item{
+    float: left;
+    width: 30%;
+    background-color: #fff;
+}
+.recent-item.mg{
+    margin: 0px 5%;
+}
+.recent-item-img img{
+    width: 100%;
+}
+.recent-item-mg{
+    padding: 10px;
+}
+.recent-item-list{
+    list-style: none;
+}
+.recent-item-list li{
+    display: inline-block;
+    margin: 0 5px;
+}
+.recent-item-list li i{
+    color: #1af;
+}
+.recent-item-title{
+    font-size: 25px;
+    text-transform: capitalize;
+    margin: 15px 0px;
+}
+.recent-item-desc{
+    color: #999;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+.recent-item-link{
+    color: #1af;
+}
+
+/*  contact section */
+.contact{
+
+}
+.contact-float{
+    overflow: hidden;
+    margin-bottom:50px ;
+}
+.contact-float-item{
+    float: left;
+    width: 33.33%;
+}
+.contact-float-icon{
+    display: block;
+    text-align: center;
+    color: #1af;
+}
+.contact-float-name{
+    display: block;
+    text-align: center;
+    padding: 15px 0px;
+    font-size: 22px;
+    font-weight: 500;
+}
+.contact-float-link{
+    display: block;
+    color: #aaa;
+    text-align: center;
+}
+.contact .container form .name3 , .name4{
+    display: block;
+    width: 100%;
+    background-color: #f4f4f4;
+
+}
+
+form .name1, .name2{
+    width: 48%;
+    margin-bottom:15px ;
+    height: 30px;
+    background-color: #f4f4f4;
+}
+form .name1{
+    margin-right: 3.2%;
+}
+form .name3{
+    height: 30px;
+    margin-bottom: 15px;
+}
+form .name4{
+    height: 80px;
+}
+form{
+    width: 80%;
+    margin: auto;    
+}
+form input , textarea{
+    border:0px solid #1af;
+    padding: 3px;
+}
+form input:focus{
+    outline-color: #1af;
+    border-bottom-width:3px ;
+    outline-width: .2px;
+}
+
+form textarea:focus{
+    outline-color: #1af;
+    border-bottom-width:3px ;
+    outline-width: .2px;
+}
+.contact-button{
+    display: block;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background-color: #1af;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+}
+
+/*footer section*/
+.footer{
+    background-color: #2c3e50;
+    text-align: center;
+}
+.footer-title{
+    margin-top: 40px;
+}
+.footer ul{
+    list-style: none;
+    margin: 20px 0px;
+}
+.footer ul li{
+    display: inline-block;
+}
+.footer ul a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #1af;
+    color: #fff;
+}
+.footer ul i{
+    line-height: 40px;
+}
+.footer p{
+    text-transform: capitalize;
+    color: #fff;
+}
+.footer p span{
+    display: inline-block;
+    color: #1af;
+    margin-bottom: 40px;
+
+}
